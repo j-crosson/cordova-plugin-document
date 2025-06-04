@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-Document" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>SplitView</name>
+    <engines>
+        <engine name="cordova-ios" version=">=7.0.0" />
+    </engines>
+    <description>Native Document</description>
+    <author>Cedtris</author>
+    <license>MIT</license>
+    <js-module name="iDocument" src="www/iDocument.js">
+        <clobbers target="iDocument" />
+    </js-module>
+    <platform name="ios">
+        <config-file target="config.xml" parent ="/*">
+            <feature name ="iDocument">
+                <param name ="ios-package" value="iDocument" />
+            </feature>
+        </config-file>
+        <source-file src ="src/ios/DocVersion.swift" />
+        <source-file src ="src/ios/iDocument.swift" />
+        <source-file src ="src/ios/DocumentView.swift" />
+        <source-file src ="src/ios/PluginDocument.swift" />
+    </platform>
+</plugin>
