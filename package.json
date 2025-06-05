@@ -1,14 +1,14 @@
 {
-  "name": "cordova-plugin-Document",
+  "name": "cordova-plugin-document",
   "version": "1.0.0",
   "description": "UIDocument wrapper",
   "cordova": {
-    "id": "cordova-plugin-Document",
+    "id": "cordova-plugin-document",
     "platforms": [
       "ios"
     ]
   },
-  "homepage": "https://github.com/j-crosson/cordova-plugin-Document#readme",
+  "homepage": "https://github.com/j-crosson/cordova-plugin-document#readme",
   "keywords": [
     "cordova",
     "ecosystem:cordova",
@@ -28,7 +28,7 @@
 
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/j-crosson/cordova-plugin-Document.git"
+    "url": "git+https://github.com/j-crosson/cordova-plugin-document.git"
   },
   "author": "Cedtris",
   "license": "MIT"
