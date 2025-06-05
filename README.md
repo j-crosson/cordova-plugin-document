@@ -78,7 +78,7 @@ Perform Document Action such as creating, reading, and writing documents.
 
 
 
-###actions:
+### actions:
 
 
 ***
@@ -114,7 +114,7 @@ File creation options.
 | getDir | user supplies directory |
 
   
-  ```javascript
+```javascript
 const options  = iDocument.createOptions.utf8 + iDocument.createOptions.overwrite;
 // this is the default 
 ```
@@ -169,7 +169,7 @@ Returns:
 * returnStatus.unexpectedError -- unknown error
 * returnStatus.userCancelled -- user cancelled directory picker
 
-  ```javascript
+```javascript
 //creates 'untitled.txt' in 'Documents' directory
 iDocument.documentAction ('create', docCreated, operationFailed)};  
 
@@ -467,7 +467,7 @@ Returns:
 * returnStatus.doesntExist -- document doesn't exist  
 * returnStatus.badArguments -- couldn't parse arguments
  
-  ```javascript 
+```javascript 
   //typical document close
     iDocument.documentAction ("close",docClosed, operationFailed);
 
@@ -536,7 +536,7 @@ Returns:
 * returnStatus.doesntExist -- document doesn't exist  
 * returnStatus.badArguments -- couldn't parse arguments
             
-  ```javascript 
+```javascript 
     //get status of document
     iDocument.documentAction ("getStatus",docStatus, operationFailed);
 
@@ -588,7 +588,7 @@ When a document is opened, document data is returned: it is not necessary to do 
 * returnStatus.doesntExist -- document doesn't exist  
 * returnStatus.badArguments -- couldn't parse arguments
             
-  ```javascript 
+```javascript 
     iDocument.documentAction("getData",updateRetrieved,operationFailed,[iDocument.documentID.primary]);
     
     function updateRetrieved (theData) {
@@ -606,7 +606,7 @@ Resolves document conflicts.
 
 Documents that can be externally updated (iCloud documents, for example) can have conflicting versions. When there is a conflict, there is a current version of the document and one or more conflict versions. To resolve the conflict, a "conflict winner" version  needs to be selected. This version will supersede all other versions.  The current version or one of the conflict versions can be chosen as the winner or the versions can be merged.  To merge versions, select the current version as the conflict winner and then save the merged version. 
 
-    "Current version" is what iCloud thinks is the current version, not necessarily what is currently displaying. The plugin will have the current version and will have sent an "update" notification--perhaps this has triggered the resolution process--but the plugin data and local data will be out of sync until a "getData" happens.        
+"Current version" is what iCloud thinks is the current version, not necessarily what is currently displaying. The plugin will have the current version and will have sent an "update" notification--perhaps this has triggered the resolution process--but the plugin data and local data will be out of sync until a "getData" happens.        
 
 Before  "resolve" can be called,   "getOtherVersions" must be called first. 
 
@@ -662,13 +662,13 @@ Get other (conflict) versions of the document.
 * returnStatus.noVersions -- there are not any other versions
 * returnStatus.unexpectedError -- unexpected error
 
-  ```javascript 
-        iDocument.documentAction("getOtherVersions",resolve,failed);
+```javascript 
+iDocument.documentAction("getOtherVersions",resolve,failed);
         
-        function resolve (numberOfVersions) {
-            //if "getOtherVersions" succeeds, there is at least one other version so "0" will work
-            iDocument.documentAction("openOther",getOther,operationFailed,[0]);
-        }
+function resolve (numberOfVersions) {
+     //if "getOtherVersions" succeeds, there is at least one other version so "0" will work
+     iDocument.documentAction("openOther",getOther,operationFailed,[0]);
+}
 
 ``` 
 ***
@@ -707,15 +707,15 @@ Get other (conflict) versions of the document.
 * returnStatus.noVersions -- there are not any other versions (or "getOtherVersions" was not previously called)
   
   
-   ```javascript 
+```javascript 
  
-      iDocument.documentAction("openOther",getOther,operationFailed,[0]);
+iDocument.documentAction("openOther",getOther,operationFailed,[0]);
       
       
-      function getOther(data) {
-        console.log(data);
-        iDocument.documentAction ("close",resolveWithOther, operationFailed,[iDocument.documentID.otherDocument]);
-        }
+function getOther(data) {
+console.log(data);
+iDocument.documentAction ("close",resolveWithOther, operationFailed,[iDocument.documentID.otherDocument]);
+}
 
 ```           
 
